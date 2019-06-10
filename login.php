@@ -1,0 +1,15 @@
+<?php
+session_start();
+$passadmin="administrator";
+$admin="administrator";
+if((!(empty($_POST["username"])))||(!(empty($_POST["password"])))){
+    if(($_POST["username"]==$admin)&&($_POST["password"]==$passadmin)){
+        $_SESSION["user_name"]=$_POST["username"];
+        header("Location:administrator.php");
+    }else{
+        header("Location:index.php");
+    }
+}else{
+    header("location:index.php");
+}
+?>
